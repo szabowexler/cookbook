@@ -1,6 +1,5 @@
-\documentclass[%
+\documentclass[
 a4paper,
-%twoside,
 11pt
 ]{article}
 
@@ -10,21 +9,17 @@ a4paper,
 \usepackage{lmodern}
 \usepackage[english]{babel}
 
+% Pretty math
 \usepackage{nicefrac}
-
-\usepackage[
-    handwritten,
-    nowarnings,
-    %myconfig
-]
-{xcookybooky}
-
-\usepackage{blindtext}    % only needed for generating test text
-
-\definecolor{mygreen}{rgb}{0,.5,0}
 \DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
 \DeclareRobustCommand{\textfahr}{\ensuremath{^{\circ}\mathrm{F}}}
 
+% Cookbook library
+\usepackage[
+    nowarnings,
+]
+{xcookybooky}
+\definecolor{mygreen}{rgb}{0,.5,0}
 \setRecipeColors
 {%
     recipename = mygreen,
@@ -35,7 +30,6 @@ a4paper,
     hint,
     hinthead,
 }
-
 \setHeadlines{
     inghead = Ingredients,
     prephead = Preparation,
@@ -48,25 +42,22 @@ a4paper,
 
 \setcounter{secnumdepth}{1}
 \renewcommand*{\recipesection}[2][]
-{%
+{
     \subsection[#1]{#2}
 }
-\renewcommand{\subsectionmark}[1]
-{% no implementation to display the section name instead
-}
+\renewcommand{\subsectionmark}[1]{}
 
-
-%%%%%%%%%%
 % hyperref
-\usepackage{hyperref}    % must be the last package
-\hypersetup{%
+% Must be last package
+\usepackage{hyperref}
+\hypersetup{
     pdfauthor            = {Elias Szabo-Wexler},
     pdftitle             = {Elias's Cookbook},
     pdfsubject           = {Recipes},
     pdfkeywords          = {recipes},
     pdfstartview         = {FitV},
     pdfview              = {FitH},
-    pdfpagemode          = {UseNone}, % Options; UseNone, UseOutlines
+    pdfpagemode          = {UseNone},
     bookmarksopen        = {true},
     pdfpagetransition    = {Glitter},
     colorlinks           = {true},
@@ -75,10 +66,6 @@ a4paper,
     citecolor            = {black},
     filecolor            = {black},
 }
-% hyperref
-%%%%%%%%%%
-
-
 
 \begin{document}
 
@@ -88,300 +75,14 @@ a4paper,
 
 \tableofcontents
 
-\vspace{9em}
-
-% background graphic
-%\setBackgroundPicture[x, y=-2cm, width=\paperwidth-4cm, height, orientation = %pagecenter]
-%{pic/background}
-
-
 \input{Soups/Soups.tex}
 \input{Beans/Beans.tex}
 \input{Rice/Rice.tex}
 \input{Pasta/Pasta.tex}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     Salad
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Salads}
-\begin{recipe}
-[ %
-    preparationtime = {\unit[25]{m}},
-    bakingtime,
-    bakingtemperature,
-    portion = {\portion{4}},
-    calory={1570},
-]
-{Strawberry and Spinach Salad}
-
-    \graph
-    {% pictures
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[2]{tb}              & Olive Oil\\
-        \unit[1]{lb}              & Chicken Breast (skinned, boneless) \\
-        \unit[5]{oz}              & Baby Spinach Leaves \\
-        \unit[1]{lb}              & Strawberries, sliced \\
-        \unit[4]{oz}              & Crumbled Feta Cheese \\
-        1                         & Red Onion, sliced \\
-        \unit[$\frac{1}{3}$]{cup} & Cranberry Raisins \\
-        \unit[$\frac{1}{2}$]{cup} & Balsamic Vinaigrette \\
-    }
-
-    \preparation
-    {%
-        \step Heat olive oil over medium high heat in a skillet
-        \step Combine spinach, strawberries, feta, cranberry raisins and red onion in a salad bowl
-        \step Cook the chicken breasts whole over medium heat until cooked through, about 10 minutes
-        \step Cut chicken into bite sized pieces, and add to salad
-        \step Dress with Balsamic Vinaigrette, mix, and serve
-    }
-
-    \hint
-    {%
-        390 calories per bowl
-    }
-
-\end{recipe}
-\newpage
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     Salad Dressing
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Salad Dressings}
-\begin{recipe}
-[ %
-    preparationtime = {\unit[5]{m}},
-    bakingtime,
-    bakingtemperature,
-    portion = {\portion{1}},
-    calory={540},
-]
-{Balsamic Vinaigrette}
-
-    \graph
-    {% pictures
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[$\frac{1}{4}$]{cup} & Balsamic Vinegar  \\
-        \unit[$\frac{1}{4}$]{cup} & Olive Oil \\
-        1                         & Clove Garlic, minced \\
-        \unit[1]{pinch}           & Mustard, ground \\
-        \unit[1]{pinch}           & Salt \\
-        \unit[1]{pinch}           & Pepper  \\
-    }
-
-    \preparation
-    {%
-        \step Mix ingredients together and stir
-    }
-
-    \hint
-    {%
-        540 calories per $\frac{1}{2}$ cup (single serving)
-    }
-
-\end{recipe}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     Chicken
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Chicken}
-
-\begin{recipe}
-[ %
-    preparationtime = {\unit[???]{m}},
-    bakingtime,
-    bakingtemperature,
-    portion = {\portion{?}},
-    calory={???},
-]
-{Tangy Chicken}
-
-    \graph
-    {% pictures%
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[2]{lb}              & Chicken breasts  \\
-        \unit[1]{tb}              & Butter  \\
-        \unit[1]{tb}              & Lemon Juice  \\
-        \unit[2]{tb}              & Brown Sugar  \\
-        \unit[$\frac{1}{2}$]{tsp} & paprika  \\
-        \unit[$\frac{1}{2}$]{cup} & water  \\
-        20						  & stuffed olives, sliced \\
-        2						  & large onion \\
-        Salt + pepper & \\
-    }
-
-    \preparation
-    {%
-    	\step Heat butter in a large sauce pan over medium-high heat, and cook the chicken.
-    	\step Combine salt, pepper, paprika, brown sugar, lemon juice, onion, and water, and pour over meat
-    	\step Sprinkle olives over the top
-    	\step Cover, and simmer for 20 minutes
-    }
-
-\end{recipe}
-\newpage
-
-\begin{recipe}
-[ %
-    preparationtime = {\unit[???]{m}},
-    bakingtime,
-    bakingtemperature,
-    portion = {\portion{4}},
-    calory={???},
-]
-{Chicken with Balsamic Vinegar and Garlic}
-
-    \graph
-    {% pictures%
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[1]{lb}              & Chicken breasts  \\
-        \unit[$\frac{3}{4}$]{lb}  & Mushrooms, sliced  \\
-        1						  & Onion, diced \\
-        \unit[2]{tb}              & Flour  \\
-        \unit[2]{tb}              & Olive Oil  \\
-        \unit[6]{cloves}          & garlic, minced  \\
-        \unit[$\frac{1}{4}$]{cup} & Balsamic Vinegar  \\
-        \unit[$\frac{3}{4}$]{cup} & Chicken Broth  \\
-        2						  & Bay Leaves \\
-        \unit[$\frac{1}{4}$]{tsp} & Dried Thyme (whole) \\
-        \unit[1]{tb}              & Butter  \\
-        & Salt \\ & pepper \\
-    }
-
-    \preparation
-    {%
-    	\step Combine flour, salt, and pepper in a small bowl, and dredge the chicken breast.
-    	\step Heat the olive oil in a large saucepan over medium-high heat.
-    	\step Saute the chicken until it is nicely browned on one side, without flipping (about 3 minutes).
-    	\step Add the garlic, turn the chicken over, and scatter the mushrooms and onions over the chicken.
-    	\step Continue frying, shaking the skillet, and stirring the mushrooms, for about 3 minutes.
-    	\step Add vinegar, broth, thyme, and bay leaf. Cover tightly, and simmer over medium-low heat for 10 minutes, turning occasionally.
-    	\step Remove the chicken to a plate, and continue simmering the sauce for 7 minutes over medium high heat.
-    	\step Mix in the butter, discard the bay leaf, and add the chicken back to the sauce.
-    	\step Let the chicken heat for several minutes, then serve hot.
-    }
-
-\hint{
-This dish goes very well served over pasta (I particularly like penne pasta), with baked asparagus on the side. It's also extremely good when served with a white zinfandel, or other rose wine.
-}
-
-\end{recipe}
-\newpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     Sides
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Side Dishes}
-\begin{recipe}
-[ %
-    preparationtime = {\unit[15]{m}},
-    bakingtime={\unit[12]{m}},
-    bakingtemperature={\unit[400]{$^\circ$F}},
-    portion = {\unit[4]{servings}},
-    calory,
-]
-{Baked Asparagus}
-
-    \graph
-    {% pictures
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[1]{bunch} & Asparagus \\
-        \unit[2]{tb}	& Olive Oil \\
-        & salt \\
-        & pepper \\
-        & Parmesan cheese \\
-    }
-
-    \preparation
-    {%
-    	\step Preheat oven to 400$^\circ$F.
-        \step Cut bottom 2'' off asparagus (removing tough base).
-        \step Combine asparagus and olive oil in a large mixing bowl, and toss to coat.
-        \step Place asparagus in a baking tray.
-        \step Sprinkle with fresh grated salt, fresh grated pepper, and fresh grated Parmesan cheese.
-        \step Bake for 12 minutes, until crispy.
-        \step Serve hot!
-    }
-
-    \hint
-    {%
-        The asparagus will cool VERY quickly, so plan to have this be the last thing to finish!
-    }
-
-\end{recipe}
-\newpage
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                     Workouts
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Workouts}
-\begin{recipe}
-[ %
-    preparationtime = {\unit[5]{m}},
-    bakingtime,
-    bakingtemperature,
-    portion = {\portion{1 (8 oz)}},
-    calory={295},
-]
-{Preworkout Fruit Smoothie}
-
-    \graph
-    {% pictures
-        %small=pic/glass,     % small picture
-        %big=pic/ingredients  % big picture
-    }
-
-    \ingredients
-    {%
-        \unit[$\frac{1}{2}$]{cup} & Plain Yogurt (minimum sugar) \\
-        \unit[$\frac{1}{2}$]{cup} & Water \\
-        \unit[1]{cup} & Frozen Berries \\
-        \unit[1]{handful} & Ice Cubes \\
-        \unit[$\frac{1}{2}$]{cup} & Oats
-    }
-
-    \preparation
-    {%
-        \step Combine yogurt, water, frozen berries, ice cubes, and oats in blender
-        \step Blend until smooth
-    }
-
-    \hint
-    {%
-        295 calories per 8 oz glass, $\approx 30g$ carbs
-    }
-
-\end{recipe}
-\newpage
+\input{Salads/Salads.tex}
+\input{SaladDressings/SaladDressings.tex}
+\input{Chicken/Chicken.tex}
+\input{Sides/Sides.tex}
+\input{Workouts/Workouts.tex}
 
 \end{document}
