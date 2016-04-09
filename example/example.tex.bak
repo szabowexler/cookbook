@@ -1,0 +1,97 @@
+\documentclass[%
+a4paper,
+%twoside,
+11pt
+]{article}
+
+% encoding, font, language
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman, english]{babel}
+
+\usepackage{nicefrac}
+
+\usepackage[
+    handwritten,
+    nowarnings,
+    %myconfig
+]
+{xcookybooky}
+
+\usepackage{blindtext}    % only needed for generating test text
+
+\definecolor{mygreen}{rgb}{0,.5,0}
+\DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
+
+\setRecipeColors
+{%
+    recipename = mygreen,
+    ing = blue,
+    inghead = blue,
+    prep,
+    prephead,
+    hint,
+    hinthead,
+}
+
+\setcounter{secnumdepth}{1}
+\renewcommand*{\recipesection}[2][]
+{%
+    \subsection[#1]{#2}
+}
+\renewcommand{\subsectionmark}[1]
+{% no implementation to display the section name instead
+}
+
+
+%%%%%%%%%%
+% hyperref
+\usepackage{hyperref}    % must be the last package
+\hypersetup{%
+    pdfauthor            = {Sven Harder},
+    pdftitle             = {Example Recipes},
+    pdfsubject           = {Recipes},
+    pdfkeywords          = {recipes},
+    pdfstartview         = {FitV},             
+    pdfview              = {FitH},
+    pdfpagemode          = {UseNone}, % Options; UseNone, UseOutlines
+    bookmarksopen        = {true},
+    pdfpagetransition    = {Glitter},
+    colorlinks           = {true},
+    linkcolor            = {black}, 
+    urlcolor             = {black}
+    citecolor            = {black}, 
+    filecolor            = {black},
+}
+% hyperref
+%%%%%%%%%%
+
+
+
+\begin{document}
+
+\title{Examples for using \textbf{xcookybooky}}
+\author{Sven Harder}
+\maketitle
+
+\begin{center}
+    The examples in this document are using the version 1.2 of \texttt{xcookxbooky}.
+\end{center}
+
+\tableofcontents
+
+\vspace{9em}
+
+\section{Recipes}
+The following recipe is an example for the usage of the \texttt{xcookybooky} package. The copyright of the pictures is owned by Roman Gaus.
+
+\newpage
+
+% background graphic
+\setBackgroundPicture[x, y=-2cm, width=\paperwidth-4cm, height, orientation = pagecenter]
+{pic/background}
+
+\input{recipe}
+
+\end{document} 

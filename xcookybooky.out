@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Comparison between xcookybooky and cookybooky}{}% 2
+\BOOKMARK [1][-]{section.3}{Usage}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Modify design}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Translation}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Options}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Background graphic}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Example}{}% 8
+\BOOKMARK [1][-]{section.5}{Troubleshooting}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{MiKTeX}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{TeX Live}{section.5}% 11
+\BOOKMARK [1][-]{section.6}{Bugs}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Known issues}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{Implementation}{}% 14
+\BOOKMARK [2][-]{subsection.7.1}{Options}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.2}{Required Packages}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.3}{Page Layout}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.4}{Color Management}{section.7}% 18
+\BOOKMARK [2][-]{subsection.7.5}{Size Management}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.6}{Recipe Environment}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.7}{Header and Footer}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.8}{Background Picture}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.9}{Configuration file}{section.7}% 23

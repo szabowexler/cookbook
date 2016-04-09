@@ -1,0 +1,43 @@
+\begin{recipe}
+[ % 
+    preparationtime = {\unit[1]{h} \unit[15]{m}},
+    bakingtime,
+    bakingtemperature,
+    portion = {\portion{6}},
+    calory={1400},
+]
+{Mushroom Barley Soup}
+    
+    \graph
+    {% pictures
+        %small=pic/glass,     % small picture
+        %big=pic/ingredients  % big picture
+    }
+    
+    \ingredients
+    {%
+        1 & Onion, chopped \\
+        \unit[6]{tb}              & Butter \\
+        \unit[1]{cup}             & Pearl Barley \\
+        \unit[8]{cups}            & Boiling Water \\
+        \unit[6]{cubes}           & Bouillon (chicken or vegetable) \\
+        \unit[1]{tsp}             & Italian Seasoning \\
+        \unit[3]{tb}              & Garlic Powder \\
+        \unit[$\frac{1}{2}$]{tsp} & Pepper \\
+                                  & Mushrooms
+    }
+    
+    \preparation
+    {%
+        \step Saute onion in butter for 5 minutes
+        \step Add barley, and simmer for 5 minutes
+        \step Add the rest of the ingredients (except mushrooms), and cook for 1 hour
+        \step Chop mushrooms and add before serving
+    }      
+    
+    \hint
+    {%
+        230 calories per bowl
+    }
+
+\end{recipe}
