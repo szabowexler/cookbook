@@ -29,4 +29,16 @@ public abstract class AbstractIngredient {
 
     return builder.build();
   }
+
+  public String toTexString() {
+    String amount;
+    Optional<String> unitMaybe = getUnit();
+    if (unitMaybe.isPresent()) {
+      amount = "\\unit[" + getQuantity() + "]{" + unitMaybe.get() + "}";
+    } else {
+      amount = getQuantity();
+    }
+
+    return amount + " & " + getDescription() + " \\\\";
+  }
 }

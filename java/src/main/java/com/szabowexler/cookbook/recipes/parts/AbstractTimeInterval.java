@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.immutables.value.Value.Immutable;
+import org.immutables.value.Value.Lazy;
 
 @Immutable
 public abstract class AbstractTimeInterval {
@@ -37,5 +38,10 @@ public abstract class AbstractTimeInterval {
       default:
         throw new IllegalArgumentException(unit + " can't be parsed as a time unit");
     }
+  }
+
+  @Lazy
+  public String toTexUnit() {
+    return "{\\unit[" + getTime() + "]{" + getTimeUnit().toString() + "}}";
   }
 }

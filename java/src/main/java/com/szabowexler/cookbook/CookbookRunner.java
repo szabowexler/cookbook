@@ -31,7 +31,8 @@ public class CookbookRunner {
       return;
     }
 
-    RecipeTexGenerator.generateRecipeTex(RecipeParser.parse(f));
+    String tex = RecipeTexGenerator.generateRecipeTex(RecipeParser.parse(f));
+    LOG.info("Generated:\n{}", tex);
   }
 
   public static void main(String[] args) {
