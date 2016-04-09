@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Guice;
+import com.szabowexler.cookbook.recipes.AbstractRecipe;
 
 public class CookbookRunner {
   private final static Logger LOG = LoggerFactory.getLogger(CookbookRunner.class);
@@ -28,6 +29,9 @@ public class CookbookRunner {
       LOG.error("{}: does not end with .recipe, ignoring", f.getAbsolutePath());
       return;
     }
+
+    AbstractRecipe recipe = AbstractRecipe.parseFrom(f);
+    LOG.info("Parsed recipe!");
   }
 
   public static void main(String[] args) {
