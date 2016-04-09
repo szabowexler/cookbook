@@ -6,10 +6,10 @@ caloriesPerPortion: 500
 hint: use curry!
 
 ingredients:
-  - 1 (lb) chicken
-  - 1 (lb) string beans
-  - 1 (cup) cooked rice
-  - 2 () large sweet potatoes
+  - (1 lb) chicken
+  - (1 lb) string beans
+  - (1 cup) cooked rice
+  - (2) large sweet potatoes
 
 steps:
   - Saute the chicken
