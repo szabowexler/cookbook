@@ -9,7 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Guice;
-import com.szabowexler.cookbook.recipes.AbstractRecipe;
+import com.szabowexler.cookbook.recipes.RecipeParser;
+import com.szabowexler.cookbook.recipes.RecipeTexGenerator;
 
 public class CookbookRunner {
   private final static Logger LOG = LoggerFactory.getLogger(CookbookRunner.class);
@@ -30,8 +31,7 @@ public class CookbookRunner {
       return;
     }
 
-    AbstractRecipe recipe = AbstractRecipe.parseFrom(f);
-    LOG.info("Parsed recipe!");
+    RecipeTexGenerator.generateRecipeTex(RecipeParser.parse(f));
   }
 
   public static void main(String[] args) {

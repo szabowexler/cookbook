@@ -1,15 +1,19 @@
 name: Curry Chicken
 prepTime: 10 minutes
 cookTime: 20 minutes
-calories: 500 per serving
+portions: 4
+caloriesPerPortion: 500
+hint: use curry!
 
 ingredients:
-  - 1 lb chicken
-  - 1 lb string beans
-  - 1 cup cooked rice
+  - 1 (lb) chicken
+  - 1 (lb) string beans
+  - 1 (cup) cooked rice
+  - 2 () large sweet potatoes
 
 steps:
   - Saute the chicken
-  - Cook the rice (oh wait, already cooked)
+  - Cook the rice (oh wait already cooked)
   - Mix everything
+    oh and don't forget line breaks
   - Profit
