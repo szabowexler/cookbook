@@ -2,6 +2,9 @@ package com.szabowexler.cookbook.tex;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +22,9 @@ import com.google.common.io.Resources;
 public class CombinedCookbookTexGenerator {
   private static final Logger LOG = LoggerFactory.getLogger(CombinedCookbookTexGenerator.class);
   private static final Joiner NEWLINE_JOINER = Joiner.on("\n");
+
+  private static final String DTX_FILENAME = "xcookybooky.dtx";
+  private static final String INS_FILENAME = "xcookybooky.ins";
 
   private CombinedCookbookTexGenerator() {}
 
@@ -61,5 +67,17 @@ public class CombinedCookbookTexGenerator {
     });
 
     return builder.toString();
+  }
+
+  public static void writeCookyBookyFilesForTex(File texDirectory) throws IOException {
+    Path templateDtx = Paths.get(texDirectory.getAbsolutePath(), DTX_FILENAME);
+    Path templateIns = Paths.get(texDirectory.getAbsolutePath(), INS_FILENAME);
+
+    Files.write(templateDtx, loadBytes(DTX_FILENAME));
+    Files.write(templateIns, loadBytes(INS_FILENAME));
+  }
+
+  private static byte[] loadBytes(String resource) throws IOException {
+    return NEWLINE_JOINER.join(Resources.readLines(Resources.getResource(resource), Charsets.UTF_8)).getBytes();
   }
 }

@@ -28,12 +28,16 @@ public abstract class AbstractTimeInterval {
   private static TimeUnit toTimeUnit(String unit) {
     switch(unit.toLowerCase()) {
       case "days":
+      case "day":
         return TimeUnit.DAYS;
       case "hours":
+      case "hour":
         return TimeUnit.HOURS;
       case "minutes":
+      case "minute":
         return TimeUnit.MINUTES;
       case "seconds":
+      case "second":
         return TimeUnit.SECONDS;
       default:
         throw new IllegalArgumentException(unit + " can't be parsed as a time unit");

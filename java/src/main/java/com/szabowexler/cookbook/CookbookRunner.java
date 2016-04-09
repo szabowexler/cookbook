@@ -38,6 +38,7 @@ public class CookbookRunner {
       categoryTexFiles.put(category.getName(), texFilesInCategory);
       LOG.info("Category '{}': built, with {} recipes", category.getName(), texFilesInCategory.size());
     }
+
     writeCollectionTexFile(rootRecipeDirectory, categoryTexFiles);
   }
 
@@ -67,6 +68,7 @@ public class CookbookRunner {
         originalRecipeFile.getAbsolutePath()
                           .replace("/recipes/", "/tex/")
                           .replace(".recipe", ".tex"));
+    LOG.info(" --> " + texFile.getAbsolutePath());
     Files.createParentDirs(texFile);
     Files.write(tex.getBytes(), texFile);
     return texFile;
@@ -75,8 +77,10 @@ public class CookbookRunner {
   private static void writeCollectionTexFile(File recipeRoot,
                                              Map<String, List<File>> categoryTexFiles) {
     String tex = CombinedCookbookTexGenerator.generateCookbookTex(categoryTexFiles);
-    File texFile = Paths.get(recipeRoot.getParentFile().getAbsolutePath(), "cookbook.tex").toFile();
+    File texDirectory = Paths.get(recipeRoot.getParentFile().getAbsolutePath(), "tex").toFile();
+    File texFile = Paths.get(texDirectory.getAbsolutePath(), "cookbook.tex").toFile();
     try {
+      CombinedCookbookTexGenerator.writeCookyBookyFilesForTex(texDirectory);
       Files.write(tex.getBytes(), texFile);
     } catch (IOException ex) {
       LOG.error("Unable to write tex to file {}", texFile.getAbsolutePath(), ex);
