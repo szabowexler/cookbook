@@ -2,8 +2,11 @@ package com.szabowexler.cookbook;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -14,22 +17,28 @@ import com.google.common.base.Preconditions;
 import com.google.common.io.Files;
 import com.google.inject.Guice;
 import com.szabowexler.cookbook.recipes.RecipeParser;
-import com.szabowexler.cookbook.recipes.RecipeTexGenerator;
+import com.szabowexler.cookbook.tex.CombinedCookbookTexGenerator;
+import com.szabowexler.cookbook.tex.RecipeTexGenerator;
 
 public class CookbookRunner {
   private final static Logger LOG = LoggerFactory.getLogger(CookbookRunner.class);
 
   private void run(File rootRecipeDirectory) {
     Preconditions.checkState(rootRecipeDirectory.isDirectory(), "Recipes collection must be a folder!");
+
+    Map<String, List<File>> categoryTexFiles = new HashMap<>();
     for (File category : rootRecipeDirectory.listFiles()) {
       Preconditions.checkState(category.isDirectory(), category.getAbsolutePath() + " is a category, but isn't a directory.");
       LOG.info("Categeory '{}': building...", category.getName());
-      List<Optional<File>> texFilesInCategory = Arrays.asList(category.listFiles()).stream()
+      List<File> texFilesInCategory = Arrays.asList(category.listFiles()).stream()
                                                       .map(this::texify)
                                                       .filter(Optional::isPresent)
+                                                      .map(Optional::get)
                                                       .collect(Collectors.toList());
+      categoryTexFiles.put(category.getName(), texFilesInCategory);
       LOG.info("Category '{}': built, with {} recipes", category.getName(), texFilesInCategory.size());
     }
+    writeCollectionTexFile(rootRecipeDirectory, categoryTexFiles);
   }
 
   private Optional<File> texify(File f) {
@@ -61,6 +70,17 @@ public class CookbookRunner {
     Files.createParentDirs(texFile);
     Files.write(tex.getBytes(), texFile);
     return texFile;
+  }
+
+  private static void writeCollectionTexFile(File recipeRoot,
+                                             Map<String, List<File>> categoryTexFiles) {
+    String tex = CombinedCookbookTexGenerator.generateCookbookTex(categoryTexFiles);
+    File texFile = Paths.get(recipeRoot.getParentFile().getAbsolutePath(), "cookbook.tex").toFile();
+    try {
+      Files.write(tex.getBytes(), texFile);
+    } catch (IOException ex) {
+      LOG.error("Unable to write tex to file {}", texFile.getAbsolutePath(), ex);
+    }
   }
 
   public static void main(String[] args) throws IOException {
