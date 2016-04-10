@@ -4,11 +4,16 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Preconditions;
@@ -19,6 +24,7 @@ import com.szabowexler.cookbook.recipes.parts.AbstractIngredient;
 import com.szabowexler.cookbook.recipes.parts.AbstractTimeInterval;
 
 public class RecipeParser {
+  private static final Logger LOG = LoggerFactory.getLogger(RecipeParser.class);
   private static final String RECIPE_FILETYPE = ".recipe";
   private static final String COMMENT_PREFIX = "#";
 
@@ -78,6 +84,14 @@ public class RecipeParser {
     switch (field) {
       case NAME:
         builder.name(singleLine);
+        break;
+      case SOURCE:
+        try {
+          builder.source(URI.create(singleLine).toURL());
+        } catch (MalformedURLException ex) {
+          LOG.error("Unable to parse source URL '{}'", singleLine);
+          throw Throwables.propagate(ex);
+        }
         break;
       case PREP_TIME:
         builder.prepTime(AbstractTimeInterval.parse(singleLine));

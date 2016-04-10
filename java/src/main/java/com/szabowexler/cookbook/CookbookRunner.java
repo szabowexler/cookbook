@@ -28,13 +28,18 @@ public class CookbookRunner {
 
     Map<String, List<File>> categoryTexFiles = new HashMap<>();
     for (File category : rootRecipeDirectory.listFiles()) {
+      if (category.getName().equalsIgnoreCase("example")) {
+        LOG.debug("Skipping example directory.");
+        continue;
+      }
+      
       Preconditions.checkState(category.isDirectory(), category.getAbsolutePath() + " is a category, but isn't a directory.");
       LOG.info("Categeory '{}': building...", category.getName());
       List<File> texFilesInCategory = Arrays.asList(category.listFiles()).stream()
-                                                      .map(this::texify)
-                                                      .filter(Optional::isPresent)
-                                                      .map(Optional::get)
-                                                      .collect(Collectors.toList());
+                                            .map(this::texify)
+                                            .filter(Optional::isPresent)
+                                            .map(Optional::get)
+                                            .collect(Collectors.toList());
       categoryTexFiles.put(category.getName(), texFilesInCategory);
       LOG.info("Category '{}': built, with {} recipes", category.getName(), texFilesInCategory.size());
     }

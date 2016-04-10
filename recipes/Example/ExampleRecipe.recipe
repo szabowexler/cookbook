@@ -1,0 +1,41 @@
+#
+# Recipes are written in .recipe files, which are a varient of YAML (a markup language). The syntax is pretty simple -
+# there are tags, with colon-seperated values. Lines starting with a '#' are comments.
+#
+# Optional fields have comments starting with <OPTIONAL>. All other fields are required.
+#
+# In general, white space is ignored. But for consistency: two spaces before hyphens, and single lined values on one line.
+# Also try to keep max columns under 120 characters for legibility.
+#
+
+# The name of the recipe (at the top of the generated page, and in the table of contents)
+name: Recipe
+
+# <OPTIONAL> The source of the recipe to link to
+source: www.google.com
+
+# How long does it take to prepare? A number, followed by a time (e.g. 20 minutes or 2 days)
+prepTime: 20 minutes
+
+# How long does it take to cook? A number, followed by a time (e.g. 8 hours, or 5 minutes)
+cookTime: 20 minutes
+
+# How many portions does it make?
+portions: 4
+
+# <OPTIONAL> How many calories per portion?
+calories: 200
+
+# <OPTIONAL> This will be placed somewhere at the edge of the recipe.
+hint: It's amazing! But you could try replacing the foo with some bar for extra zing.
+
+# What ingredients are required? Each ingredient goes on its own line, like this:
+# - (UNIT <QUANTITY>) DESCRIPTION
+# The unit (a number) is mandatory, the quantity (a string) is optional, and the description is mandatory.
+ingredients:
+  - (1 lb) things
+
+# How do we actually make the recipe? One step per line (after the tag), starting with a hyphen.
+# Newlines are ok (you can break up your text), we'll only move on to the next step on hyphens.
+steps:
+  - make the things!

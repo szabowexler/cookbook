@@ -4,6 +4,7 @@ import java.util.Optional;
 
 enum RecipeField {
   NAME("name", false),
+  SOURCE("source", false),
   PREP_TIME("prepTime", false),
   COOK_TIME("cookTime", false),
   PORTIONS("portions", false),
