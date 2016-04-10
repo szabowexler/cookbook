@@ -1,0 +1,16 @@
+name: Manhattan
+prepTime: 2 minutes
+cookTime: 0 minutes
+portions: 4
+hint: Best served neat, on the rocks masks the powerful fragrance.
+
+ingredients:
+  - (2 oz)     Rye Whisky
+  - (1 oz)     Sweet Vermouth
+  - (1 dash)   Angostura Bitters
+  - (1 twist)  Lemon Rind
+
+steps:
+  - Pour rye and vermouth into a rocks glass
+  - Add a dash of bitters
+  - Drop in lemon twist garnish
