@@ -15,7 +15,7 @@ $(PAPER).pdf: $(RECIPES) $(JAVA)
 	cd tex && \
 	pdflatex $(PAPER) && \
 	pdflatex $(PAPER)
-	mv cookbook.pdf ../. 
+	mv cookbook.pdf ../cookbook.pdf
 
 clean:
 	rm -rf $(TEX_PATH)
