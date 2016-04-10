@@ -46,6 +46,6 @@ public abstract class AbstractTimeInterval {
 
   @Lazy
   public String toTexUnit() {
-    return "{\\unit[" + getTime() + "]{" + getTimeUnit().toString() + "}}";
+    return "{\\unit[" + getTime() + "]{" + getTimeUnit().toString().toLowerCase() + "}}";
   }
 }
