@@ -56,7 +56,9 @@ public class CombinedCookbookTexGenerator {
 
   private static String generateTex(Entry<String, List<File>> category) {
     String categoryName = category.getKey();
-    List<File> texFiles = category.getValue();
+    List<File> texFiles = category.getValue().stream()
+        .sorted(Comparator.comparing(File::getName))
+        .collect(Collectors.toList());
 
     StringBuilder builder = new StringBuilder();
 
