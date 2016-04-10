@@ -28,8 +28,11 @@ public class RecipeTexGenerator {
     builder.append("\\begin{recipe}\n")
            .append("[ %\n")
            .append("\t").append(prepTimeTex(recipe.getPrepTime())).append(",\n")
-           .append("\t").append(cookTimeTex(recipe.getCookTime())).append(",\n")
-           .append("\t").append(portionTex(recipe.getPortions())).append(",\n");
+           .append("\t").append(cookTimeTex(recipe.getCookTime())).append(",\n");
+    recipe.getBakeTemperatureFahrenheit().ifPresent(temp -> {
+      builder.append("\t").append(bakeTempTex(temp)).append(",\n");
+    });
+    builder.append("\t").append(portionTex(recipe.getPortions())).append(",\n");
     recipe.getCalories().ifPresent(calories -> {
       builder.append("\t").append(calorieTex(calories));
     });
@@ -54,6 +57,10 @@ public class RecipeTexGenerator {
 
   private static String cookTimeTex(AbstractTimeInterval time) {
     return BAKING_TIME_TEX + " = " + time.toTexUnit();
+  }
+
+  private static String bakeTempTex(int tempFahrenheit) {
+    return BAKING_TEMP_TEX + " = {{" + tempFahrenheit + "$^{\\circ}$ F}}";
   }
 
   private static String portionTex(int portions) {

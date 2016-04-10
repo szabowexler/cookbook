@@ -4,8 +4,6 @@ import static com.google.common.base.Strings.isNullOrEmpty;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -22,6 +20,8 @@ import com.google.common.io.Resources;
 import com.szabowexler.cookbook.recipes.ImmutableRecipe.Builder;
 import com.szabowexler.cookbook.recipes.parts.AbstractIngredient;
 import com.szabowexler.cookbook.recipes.parts.AbstractTimeInterval;
+
+import edu.stanford.nlp.ie.machinereading.domains.ace.reader.RobustTokenizer;
 
 public class RecipeParser {
   private static final Logger LOG = LoggerFactory.getLogger(RecipeParser.class);
@@ -86,18 +86,19 @@ public class RecipeParser {
         builder.name(singleLine);
         break;
       case SOURCE:
-        try {
-          builder.source(URI.create(singleLine).toURL());
-        } catch (MalformedURLException ex) {
-          LOG.error("Unable to parse source URL '{}'", singleLine);
-          throw Throwables.propagate(ex);
+        if (!RobustTokenizer.isUrl(singleLine)) {
+          throw new RuntimeException("Passed source doesn't look like a URL: '" +  singleLine + "'");
         }
+        builder.source(singleLine);
         break;
       case PREP_TIME:
         builder.prepTime(AbstractTimeInterval.parse(singleLine));
         break;
       case COOK_TIME:
         builder.cookTime(AbstractTimeInterval.parse(singleLine));
+        break;
+      case BAKE_TEMP:
+        builder.bakeTemperatureFahrenheit(Integer.parseInt(singleLine));
         break;
       case PORTIONS:
         builder.portions(Integer.parseInt(singleLine));

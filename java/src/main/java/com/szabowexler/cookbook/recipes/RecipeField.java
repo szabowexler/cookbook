@@ -7,6 +7,7 @@ enum RecipeField {
   SOURCE("source", false),
   PREP_TIME("prepTime", false),
   COOK_TIME("cookTime", false),
+  BAKE_TEMP("bakingTemperature", false),
   PORTIONS("portions", false),
   CALORIES("caloriesPerPortion", false),
   HINT("hint", false),

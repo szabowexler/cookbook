@@ -20,6 +20,9 @@ prepTime: 20 minutes
 # How long does it take to cook? A number, followed by a time (e.g. 8 hours, or 5 minutes)
 cookTime: 20 minutes
 
+# <OPTIONAL> Temperature to bake at, in F
+bakingTemperature: 350
+
 # How many portions does it make?
 portions: 4
 

@@ -1,0 +1,20 @@
+name: Baked Asparagus
+prepTime: 15 minutes
+cookTime: 12 minutes
+bakingTemperature: 400
+portions: 4
+
+ingredients:
+  - (1 bunch) asparagus
+  - (2 tb) olive oil
+  - ( ) salt
+  - ( ) pepper
+  - ( ) Parmesan cheese
+ 
+steps:
+  - Preheat oven to 400
+  - Cut bottom 2 inches off asparagus
+  - Combine asparagus and olive oil in large mixing bowl, and toss to coat
+  - Place asparagus in a baking tray, and sprinkle salt, pepper, and parmessan over
+  - Bake for 12 minutes until crispy
+  - Serve hot!
