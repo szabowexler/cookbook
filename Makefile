@@ -4,8 +4,8 @@ TEX_PATH = "$(WORKING_PATH)/tex"
 JAVA_PATH = "$(WORKING_PATH)/java/src/main"
 LOGS = "$(WORKING_PATH)/logs"
 PAPER = cookbook
-RECIPES = $(wildcard RECIPE_PATH/*.recipe)
-JAVA = $(wildcard JAVA_PATH/*.java)
+RECIPES = $(shell find $(RECIPE_PATH) -name "*.recipe")
+JAVA = $(shell find $(JAVA_PATH) -name "*.java")
 
 .PHONY: all clean
 
