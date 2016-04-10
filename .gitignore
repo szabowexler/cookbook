@@ -2,6 +2,7 @@
 *.class
 *~
 *.DS_STORE
+logs/*
 
 # Package Files #
 *.jar
