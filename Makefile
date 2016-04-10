@@ -16,8 +16,9 @@ $(PAPER).pdf: $(RECIPES) $(JAVA)
 	pdflatex $(PAPER) && \
 	pdflatex $(PAPER)
 	mv "$(TEX_PATH)/$(PAPER).pdf" "$(WORKING_PATH)/$(PAPER).pdf"
+	rm -rf "$(TEX_PATH)"
 	open "$(WORKING_PATH)/$(PAPER).pdf" &
 
 clean:
-	rm -rf $(TEX_PATH)
+	rm $(PAPER).pdf
 
