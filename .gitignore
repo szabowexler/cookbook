@@ -1,5 +1,7 @@
 *tex/*
 *.class
+*~
+*.DS_STORE
 
 # Package Files #
 *.jar
