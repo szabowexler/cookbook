@@ -89,10 +89,11 @@ public class CookbookRunner {
 
   public static void main(String[] args) throws IOException {
     if (args.length == 0) {
-      System.out.println("Usage: root recipe directory as sole argument");
+      System.out.println("Usage: root recipe directory as sole argument (got " + args.length + " args)");
       System.exit(0);
     }
 
+    LOG.info("Running against '{}'", args[0]);
     Guice.createInjector(new CookbookModule()).getInstance(CookbookRunner.class)
          .run(new File(args[0]));
   }
