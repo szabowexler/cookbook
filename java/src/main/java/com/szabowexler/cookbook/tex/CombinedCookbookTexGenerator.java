@@ -62,7 +62,7 @@ public class CombinedCookbookTexGenerator {
 
     StringBuilder builder = new StringBuilder();
 
-    builder.append("\t\\section{").append(categoryName).append("}\n");
+    builder.append("\t\\section{").append(categoryName.replace("_", " ")).append("}\n");
     texFiles.forEach(texFile -> {
       builder.append("\t\t\\input{").append(texFile.getAbsolutePath()).append("}\n")
              .append("\t\t\\newpage\n\n");
