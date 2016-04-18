@@ -28,7 +28,7 @@ public class CookbookRunner {
 
     Map<String, List<File>> categoryTexFiles = new HashMap<>();
     for (File category : rootRecipeDirectory.listFiles()) {
-      if (category.getName().equalsIgnoreCase("example")) {
+      if (category.getName().equalsIgnoreCase("example") || category.getName().startsWith(".")) {
         LOG.debug("Skipping example directory.");
         continue;
       }
