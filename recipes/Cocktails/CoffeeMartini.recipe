@@ -1,0 +1,17 @@
+name: Coffee Martini
+prepTime: 2 minutes
+cookTime: 0 minutes
+portions: 1
+
+ingredients:
+  - (1.5 oz)	Kahlua
+  - (1.5 oz)	Stong Coffee or Espresso
+  - (1.5 oz)	Vodka
+  - (optional) Heavy Cream
+  - (optional) Frangelico
+steps:
+  - Combine ingredients in shaker
+  - Shake with ice until well-chilled
+  - Strain into chilled martini glass
+  - (optional) Add a splash of Frangelico
+  - (optional) Float heavy cream on top
