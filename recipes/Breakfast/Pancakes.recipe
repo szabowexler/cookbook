@@ -1,0 +1,19 @@
+name: Pancakes
+prepTime: 15 minutes
+cookTime: 15 minutes
+portions: 4
+
+ingredients:
+  - (1.5 cups)	All-purpose flour
+  - (3 tbsp)	Sugar     
+  - (1.75 tsp)	Baking powder
+  - (1 tsp)	Salt
+  - (1.5 cups)	Milk
+  - (3 tbsp)	Butter, melted
+  - (2)		Eggs
+  - (1 tbsp)	Vanilla extract
+
+steps:
+  - In a large mixing bowl, combine dry ingredients
+  - In a seperate (large) mixing bowl, combine liquid ingredients
+  - Mix liquid ingredients quickly into dry ingredients
